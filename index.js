@@ -3,7 +3,9 @@ window.onload = function() {
     const audio = document.querySelector('audio');
     
     audioFile.onchange = function() {
+
       var files = this.files;
+      var audio = new Audio();
       audio.src = URL.createObjectURL(files[0]);
       audio.load();
       audio.play();
@@ -32,7 +34,7 @@ window.onload = function() {
   
       function draw() {
           requestAnimationFrame(draw);
-
+          
           analyser.getByteFrequencyData(dataArray);
           ctx.fillStyle = 'rgb(0, 0, 0)';
           ctx.fillRect(0, 0, WIDTH, HEIGHT);
